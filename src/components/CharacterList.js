@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import CharacterCard from './CharacterCard';
+import {Link} from 'react-router-dom'
 
 export default function CharacterList(props) {
+
   // TODO: Add useState to track data from useEffect
     const [character, setCharacter] = useState([]);
    
@@ -23,6 +25,7 @@ export default function CharacterList(props) {
   }, []);
 
   return (
+    
     <div>
     <section className="character-list">
       <p>{character.map((info,i)=> {
@@ -32,12 +35,13 @@ export default function CharacterList(props) {
             <p>  Gender:{info.gender} </p>
             <p> Status: {info.status} </p>
           </div>
-
+      
         )
       }
       
         )}</p>
     </section>
+    <Link to={`/`}> <p>  CLICK HERE TO GO BACK HOME </p> </Link>
     </div>
   );
  
