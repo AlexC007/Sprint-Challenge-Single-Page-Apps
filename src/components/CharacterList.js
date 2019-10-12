@@ -1,16 +1,44 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import CharacterCard from './CharacterCard';
 
-export default function CharacterList() {
+export default function CharacterList(props) {
   // TODO: Add useState to track data from useEffect
+    const [character, setCharacter] = useState([]);
+   
 
   useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+  const getCharacters= ()=> {
+    axios
+    .get('https://rickandmortyapi.com/api/character/')
+    .then(info=> {
+      console.log(info)
+      setCharacter(info.data.results);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
+  getCharacters();
   }, []);
 
   return (
+    <div>
     <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
+      <p>{character.map((info,i)=> {
+        return(
+          <div className= 'character-card'>
+            <h5> Name: {info.name} </h5>
+            <p>  Gender:{info.gender} </p>
+            <p> Status: {info.status} </p>
+          </div>
+
+        )
+      }
+      
+        )}</p>
     </section>
+    </div>
   );
+ 
 }
