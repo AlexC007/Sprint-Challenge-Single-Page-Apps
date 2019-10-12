@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import CharacterCard from './CharacterCard';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import styled from 'styled-components';
+import SearchForm from './SearchForm';
+
+const H5= styled.h5 `
+font-size: 20px;`
+
 
 export default function CharacterList(props) {
 
@@ -27,11 +33,13 @@ export default function CharacterList(props) {
   return (
     
     <div>
+      <SearchForm/>
     <section className="character-list">
       <p>{character.map((info,i)=> {
         return(
           <div className= 'character-card'>
-            <h5> Name: {info.name} </h5>
+            
+            <H5> Name: {info.name} </H5>
             <p>  Gender:{info.gender} </p>
             <p> Status: {info.status} </p>
           </div>
@@ -43,6 +51,7 @@ export default function CharacterList(props) {
     </section>
     <Link to={`/`}> <p>  CLICK HERE TO GO BACK HOME </p> </Link>
     </div>
+   
   );
  
 }

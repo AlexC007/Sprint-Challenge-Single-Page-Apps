@@ -28,6 +28,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 - [ ]  Explain benefit(s) using `client-side routing`?
 
 > Answer:
+ Using client side routing is typically much faster than server side because the server does not have to make url requests and reload web pages. We use javascript to prevent server requests and instead extract data interally through state, allowing data to be displayed instantaneously without refreshing.
 
 ## Project Set Up
 
