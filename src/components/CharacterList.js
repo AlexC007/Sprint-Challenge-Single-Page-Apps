@@ -28,7 +28,7 @@ export default function CharacterList(props) {
     });
   }
   getCharacters();
-  }, []);
+  }, [setCharacter]);
 
   return (
     
